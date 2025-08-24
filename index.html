@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Free Fire Tournament 2025</title>
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background: #000;
+  color: #fff;
+}
+header {
+  background: #ff3c00;
+  padding: 15px;
+  font-size: 24px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+.countdown {
+  font-size: 28px;
+  margin: 20px 0;
+  color: #00ffcc;
+}
+section {
+  padding: 20px;
+}
+h2 {
+  color: #ffcc00;
+  margin-bottom: 10px;
+}
+.prizes,
+.winners,
+.rules {
+  background: #111;
+  margin: 15px auto;
+  padding: 15px;
+  border-radius: 10px;
+  max-width: 600px;
+}
+.prizes li,
+.rules li {
+  text-align: left;
+  margin: 8px 0;
+}
+.winners table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+.winners th,
+.winners td {
+  border: 1px solid #555;
+  padding: 8px;
+}
+.winners th {
+  background: #ff3c00;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 400px;
+  margin: auto;
+}
+input,
+button {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  font-size: 16px;
+}
+button {
+  background: #ff3c00;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+button:hover {
+  background: #e63200;
+}
+.contact a {
+  display: inline-block;
+  margin: 5px;
+  padding: 10px 15px;
+  background: #00ffcc;
+  color: #000;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+}
+audio {
+  margin-top: 15px;
+}
+/* Responsive Styles */
+@media (max-width: 650px) {
+  .prizes,
+  .winners,
+  .rules {
+    max-width: 90%;
+  }
+  form {
+    max-width: 90%;
+  }
+  header {
+    flex-direction: column;
+    font-size: 20px;
+    gap: 7px;
+  }
+}
+@media (max-width: 400px) {
+  header {
+    font-size: 18px;
+    padding: 8px;
+  }
+  .countdown {
+    font-size: 22px;
+  }
+  input,
+  button {
+    font-size: 14px;
+    padding: 8px;
+  }
+}
+</style>
+</head>
+<body>
+<header>
+  <!-- Team Logo added here -->
+  <img src="images/team-logo.png" alt="Psycho Gang Team Logo" height="50" style="border-radius:10px;box-shadow:0 0 5px #000;">
+  Free Fire Tournament 2025
+</header>
+
+<section>
+  <h2>Countdown</h2>
+  <div class="countdown" id="countdown">Loading...</div>
+</section>
+
+<section class="prizes">
+  <h2>Prize Distribution</h2>
+  <ul>
+    <li>Winner: ₹2500</li>
+    <li>Runner-up: ₹1500</li>
+    <li>3rd Place: Random Prize</li>
+  </ul>
+</section>
+
+<section class="winners">
+  <h2>Previous Winners</h2>
+  <table>
+    <tr><th>Year</th><th>Team Name</th><th>Prize</th></tr>
+    <tr><td>2024</td><td>Alpha Squad</td><td>₹2000</td></tr>
+  </table>
+</section>
+
+<section class="rules">
+  <h2>Rules</h2>
+  <ul>
+    <li>Mode: Clash Squad</li>
+    <li>No emulator allowed</li>
+    <li>No hacks or cheats</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Register Now</h2>
+  <form onsubmit="return false;">
+    <input type="text" name="teamName" placeholder="Team Name" required />
+    <input type="text" name="leaderName" placeholder="Leader Name" required />
+    <input type="number" name="contactNumber" placeholder="Contact Number" required />
+    <button onclick="alert('Registration Successful!')">Submit</button>
+  </form>
+</section>
+
+<section>
+  <h2>Free Fire Music</h2>
+  <audio controls>
+    <source
+      src="https://freesound.org/data/previews/522/522344_11263-lq.mp3"
+      type="audio/mpeg"
+    />
+    Your browser does not support the audio element.
+  </audio>
+</section>
+
+<section class="contact">
+  <h2>Contact Us</h2>
+  <a href="tel:9933158308">Call Now</a>
+  <a href="https://wa.me/919933158308">WhatsApp</a>
+</section>
+
+<script>
+  const target = new Date("2025-10-05T00:00:00").getTime();
+  const countdownEl = document.getElementById("countdown");
+  const interval = setInterval(() => {
+    const now = new Date().getTime();
+    const diff = target - now;
+    if (diff > 0) {
+      const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const s = Math.floor((diff % (1000 * 60)) / 1000);
+      countdownEl.innerText = `${d}d ${h}h ${m}m ${s}s`;
+    } else {
+      countdownEl.innerText = "Tournament Started!";
+      clearInterval(interval); // Interval stop when countdown ends
+    }
+  }, 1000);
+</script>
+</body>
+</html>
