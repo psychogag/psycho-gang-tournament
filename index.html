@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Free Fire Tournament 2025</title>
+<title>Free Fire Tournament 2025 - Psycho Gang</title>
 <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 <style>
 body {
@@ -113,7 +113,9 @@ form {
 }
 
 input,
-button {
+button,
+select,
+textarea {
   padding: 10px;
   border-radius: 5px;
   border: none;
@@ -158,11 +160,6 @@ audio {
 }
 
 /* Gaming Elements */
-.game-element {
-  position: absolute;
-  z-index: 1;
-}
-
 .floating-gun {
   animation: float 3s ease-in-out infinite;
 }
@@ -198,7 +195,9 @@ audio {
     font-size: 22px;
   }
   input,
-  button {
+  button,
+  select,
+  textarea {
     font-size: 14px;
     padding: 8px;
   }
@@ -220,8 +219,9 @@ audio {
 </div>
 
 <header>
-  <!-- Team Logo with floating effect -->
-  <img src="images/team-logo.png" alt="Psycho Gang Team Logo" height="50" 
+  <!-- Psycho Gang Team Logo - Base64 Embedded -->
+  <img src="data:image/png;base64,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" 
+       alt="Psycho Gang Team Logo" height="50" 
        style="border-radius:10px;box-shadow:0 0 15px #ff3c00;" class="floating-gun">
   
   Free Fire Tournament 2025
@@ -255,7 +255,7 @@ audio {
 <section class="prizes">
   <h2>Prize Distribution & Entry Fee</h2>
   <ul>
-    <li><b style="color:#ff3c00;">Entry Fee:</b> ₹50 per team</li>
+    <li><b style="color:#ff3c00;">Entry Fee:</b> ₹300 per team</li>
     <li><b style="color:#ffcc00;">Winner:</b> ₹2500 💰</li>
     <li><b style="color:#silver;">Runner-up:</b> ₹1500 🥈</li>
     <li><b style="color:#cd7f32;">3rd Place:</b> Random Prize 🎁</li>
@@ -293,13 +293,39 @@ audio {
 
 <section>
   <h2>Register Now</h2>
-  <form onsubmit="return false;">
-    <input type="text" name="teamName" placeholder="Team Name" required />
-    <input type="text" name="leaderName" placeholder="Leader Name" required />
-    <input type="number" name="contactNumber" placeholder="Contact Number" required />
-    <button onclick="alert('Registration Successful! 🎉')">🚀 Submit Registration</button>
+  <form action="https://api.web3forms.com/submit" method="POST">
+    <!-- Web3Forms Access Key -->
+    <input type="hidden" name="access_key" value="ee1170ba-88fb-4d83-ae66-f764481acf90">
+    
+    <!-- Hidden fields for better organization -->
+    <input type="hidden" name="subject" value="🔥 Free Fire Tournament Registration - Psycho Gang">
+    <input type="hidden" name="from_name" value="Tournament Registration System">
+    
+    <!-- Registration fields -->
+    <input type="text" name="team_name" placeholder="Team Name" required />
+    <input type="text" name="leader_name" placeholder="Leader Name" required />
+    <input type="number" name="contact_number" placeholder="Contact Number" required />
+    <input type="email" name="email" placeholder="Email Address (Optional)" />
+    
+    <!-- Additional tournament info -->
+    <select name="preferred_time" style="padding:10px; border-radius:5px; border:none; font-size:16px; background:#fff; color:#000;">
+      <option value="">Select Preferred Time (Optional)</option>
+      <option value="Morning (10AM-12PM)">Morning (10AM-12PM)</option>
+      <option value="Afternoon (2PM-4PM)">Afternoon (2PM-4PM)</option>
+      <option value="Evening (6PM-8PM)">Evening (6PM-8PM)</option>
+      <option value="Night (8PM-10PM)">Night (8PM-10PM)</option>
+    </select>
+    
+    <textarea name="message" placeholder="Additional Message (Optional)" 
+              style="padding:10px; border-radius:5px; border:none; font-size:16px; min-height:60px; resize:vertical; background:#fff; color:#000;"></textarea>
+    
+    <!-- Web3Forms honeypot spam protection -->
+    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+    
+    <button type="submit">🚀 Submit Registration</button>
+    
     <div style="color:#ffcc00; margin-top:7px; font-size:14px;">
-      <b>Entry Fee:</b> ₹50 per team | Payment details will be shared after registration
+      <b>Entry Fee:</b> ₹300 per team | Payment details will be shared after registration
     </div>
   </form>
 </section>
