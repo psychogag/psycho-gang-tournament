@@ -4,6 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Free Fire Tournament 2025</title>
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 <style>
 body {
   margin: 0;
@@ -11,7 +12,21 @@ body {
   text-align: center;
   background: #000;
   color: #fff;
+  position: relative;
+  overflow-x: hidden;
 }
+
+/* Background Fire Animation */
+.fire-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.1;
+}
+
 header {
   background: #ff3c00;
   padding: 15px;
@@ -21,46 +36,74 @@ header {
   align-items: center;
   justify-content: center;
   gap: 14px;
+  position: relative;
+  animation: glow 2s ease-in-out infinite alternate;
 }
+
+@keyframes glow {
+  from { box-shadow: 0 0 20px #ff3c00; }
+  to { box-shadow: 0 0 30px #ff6600, 0 0 40px #ff3c00; }
+}
+
 .countdown {
   font-size: 28px;
   margin: 20px 0;
   color: #00ffcc;
+  animation: pulse 1.5s ease-in-out infinite;
+  text-shadow: 0 0 10px #00ffcc;
 }
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
 section {
   padding: 20px;
+  position: relative;
 }
+
 h2 {
   color: #ffcc00;
   margin-bottom: 10px;
+  text-shadow: 0 0 8px #ffcc00;
 }
+
 .prizes,
 .winners,
 .rules {
-  background: #111;
+  background: linear-gradient(135deg, #111, #222);
   margin: 15px auto;
   padding: 15px;
   border-radius: 10px;
   max-width: 600px;
+  border: 2px solid #ff3c00;
+  box-shadow: 0 4px 15px rgba(255, 60, 0, 0.3);
 }
+
 .prizes li,
 .rules li {
   text-align: left;
   margin: 8px 0;
 }
+
 .winners table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 10px;
 }
+
 .winners th,
 .winners td {
   border: 1px solid #555;
   padding: 8px;
 }
+
 .winners th {
   background: #ff3c00;
 }
+
 form {
   display: flex;
   flex-direction: column;
@@ -68,6 +111,7 @@ form {
   max-width: 400px;
   margin: auto;
 }
+
 input,
 button {
   padding: 10px;
@@ -75,28 +119,59 @@ button {
   border: none;
   font-size: 16px;
 }
+
 button {
-  background: #ff3c00;
+  background: linear-gradient(45deg, #ff3c00, #ff6600);
   color: #fff;
   cursor: pointer;
   transition: 0.3s;
+  text-transform: uppercase;
+  font-weight: bold;
 }
+
 button:hover {
-  background: #e63200;
+  background: linear-gradient(45deg, #e63200, #ff3c00);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(255, 60, 0, 0.4);
 }
+
 .contact a {
   display: inline-block;
   margin: 5px;
   padding: 10px 15px;
-  background: #00ffcc;
+  background: linear-gradient(45deg, #00ffcc, #00ccaa);
   color: #000;
   border-radius: 5px;
   text-decoration: none;
   font-weight: bold;
+  transition: 0.3s;
 }
+
+.contact a:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0, 255, 204, 0.4);
+}
+
 audio {
   margin-top: 15px;
+  border-radius: 10px;
 }
+
+/* Gaming Elements */
+.game-element {
+  position: absolute;
+  z-index: 1;
+}
+
+.floating-gun {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
 /* Responsive Styles */
 @media (max-width: 650px) {
   .prizes,
@@ -113,6 +188,7 @@ audio {
     gap: 7px;
   }
 }
+
 @media (max-width: 400px) {
   header {
     font-size: 18px;
@@ -130,24 +206,70 @@ audio {
 </style>
 </head>
 <body>
+
+<!-- Background Fire Animation -->
+<div class="fire-bg">
+  <lottie-player 
+    src="https://lottie.host/4f7c5d96-3d5b-4f24-9c5a-8f8e2c6d1a0b/QmJyxBzJ5q.json" 
+    background="transparent" 
+    speed="0.5" 
+    style="width: 100%; height: 100%;" 
+    loop 
+    autoplay>
+  </lottie-player>
+</div>
+
 <header>
-  <!-- Team Logo added here -->
-  <img src="images/team-logo.png" alt="Psycho Gang Team Logo" height="50" style="border-radius:10px;box-shadow:0 0 5px #000;">
+  <!-- Team Logo with floating effect -->
+  <img src="images/team-logo.png" alt="Psycho Gang Team Logo" height="50" 
+       style="border-radius:10px;box-shadow:0 0 15px #ff3c00;" class="floating-gun">
+  
   Free Fire Tournament 2025
+  
+  <!-- Small fire effect beside title -->
+  <lottie-player 
+    src="https://lottie.host/embed/b4f4c9b5-8e5e-4f4e-9b4e-5a5c5d5e5f5g/Jy7B8CzK9L.json"
+    background="transparent" 
+    speed="1" 
+    style="width: 40px; height: 40px;" 
+    loop 
+    autoplay>
+  </lottie-player>
 </header>
 
 <section>
   <h2>Countdown</h2>
   <div class="countdown" id="countdown">Loading...</div>
+  
+  <!-- Gaming controller animation -->
+  <lottie-player 
+    src="https://lottie.host/embed/c5f5d9c6-9f6f-5g5h-0c5d-6b6d6e6f6g6h/Kz8C9DzL0M.json"
+    background="transparent" 
+    speed="1" 
+    style="width: 80px; height: 80px; margin: 10px auto;" 
+    loop 
+    autoplay>
+  </lottie-player>
 </section>
 
 <section class="prizes">
-  <h2>Prize Distribution</h2>
+  <h2>Prize Distribution & Entry Fee</h2>
   <ul>
-    <li>Winner: ₹2500</li>
-    <li>Runner-up: ₹1500</li>
-    <li>3rd Place: Random Prize</li>
+    <li><b style="color:#ff3c00;">Entry Fee:</b> ₹50 per team</li>
+    <li><b style="color:#ffcc00;">Winner:</b> ₹2500 💰</li>
+    <li><b style="color:#silver;">Runner-up:</b> ₹1500 🥈</li>
+    <li><b style="color:#cd7f32;">3rd Place:</b> Random Prize 🎁</li>
   </ul>
+  
+  <!-- Trophy animation -->
+  <lottie-player 
+    src="https://lottie.host/embed/d6g6e0d7-0g7g-6h6i-1d6e-7c7e7f7g7h7i/Lz9D0EzM1N.json"
+    background="transparent" 
+    speed="1" 
+    style="width: 60px; height: 60px; margin: 10px auto;" 
+    loop 
+    autoplay>
+  </lottie-player>
 </section>
 
 <section class="winners">
@@ -159,11 +281,13 @@ audio {
 </section>
 
 <section class="rules">
-  <h2>Rules</h2>
+  <h2>Rules & Regulations</h2>
   <ul>
-    <li>Mode: Clash Squad</li>
-    <li>No emulator allowed</li>
-    <li>No hacks or cheats</li>
+    <li>🎮 Mode: Clash Squad</li>
+    <li>🚫 No emulator allowed</li>
+    <li>⚡ No hacks or cheats</li>
+    <li>📱 Mobile devices only</li>
+    <li>🔥 Fair play mandatory</li>
   </ul>
 </section>
 
@@ -173,25 +297,52 @@ audio {
     <input type="text" name="teamName" placeholder="Team Name" required />
     <input type="text" name="leaderName" placeholder="Leader Name" required />
     <input type="number" name="contactNumber" placeholder="Contact Number" required />
-    <button onclick="alert('Registration Successful!')">Submit</button>
+    <button onclick="alert('Registration Successful! 🎉')">🚀 Submit Registration</button>
+    <div style="color:#ffcc00; margin-top:7px; font-size:14px;">
+      <b>Entry Fee:</b> ₹50 per team | Payment details will be shared after registration
+    </div>
   </form>
 </section>
 
 <section>
   <h2>Free Fire Music</h2>
-  <audio controls>
+  <audio controls style="filter: hue-rotate(45deg);">
     <source
       src="https://freesound.org/data/previews/522/522344_11263-lq.mp3"
       type="audio/mpeg"
     />
     Your browser does not support the audio element.
   </audio>
+  
+  <!-- Music note animation -->
+  <div>
+    <lottie-player 
+      src="https://lottie.host/embed/e7h7f1e8-1h8h-7i7j-2e7f-8d8f8g8h8i8j/Mz0E1FzN2O.json"
+      background="transparent" 
+      speed="1" 
+      style="width: 50px; height: 50px; margin: 10px auto;" 
+      loop 
+      autoplay>
+    </lottie-player>
+  </div>
 </section>
 
 <section class="contact">
   <h2>Contact Us</h2>
-  <a href="tel:9933158308">Call Now</a>
-  <a href="https://wa.me/919933158308">WhatsApp</a>
+  <a href="tel:9933158308">📞 Call Now</a>
+  <a href="https://wa.me/919933158308">💬 WhatsApp</a>
+  
+  <!-- Phone animation -->
+  <div>
+    <lottie-player 
+      src="https://lottie.host/embed/f8i8g2f9-2i9i-8j8k-3f8g-9e9g9h9i9j9k/Nz1F2GzO3P.json"
+      background="transparent" 
+      speed="1" 
+      style="width: 60px; height: 60px; margin: 10px auto;" 
+      loop 
+      autoplay>
+    </lottie-player>
+  </div>
 </section>
 
 <script>
@@ -207,8 +358,8 @@ audio {
       const s = Math.floor((diff % (1000 * 60)) / 1000);
       countdownEl.innerText = `${d}d ${h}h ${m}m ${s}s`;
     } else {
-      countdownEl.innerText = "Tournament Started!";
-      clearInterval(interval); // Interval stop when countdown ends
+      countdownEl.innerText = "🔥 Tournament Started! 🔥";
+      clearInterval(interval);
     }
   }, 1000);
 </script>
