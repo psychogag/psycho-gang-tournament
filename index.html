@@ -4,19 +4,22 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Free Fire Tournament 2025 - Psycho Gang</title>
-<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 <style>
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: 'Arial Black', Arial, sans-serif;
   text-align: center;
   background: #000;
   color: #fff;
   position: relative;
   overflow-x: hidden;
+  background-image: 
+    radial-gradient(circle at 20% 50%, rgba(255, 60, 0, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 102, 0, 0.2) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(255, 204, 0, 0.1) 0%, transparent 50%);
 }
 
-/* Background Fire Animation */
+/* Animated background */
 .fire-bg {
   position: fixed;
   top: 0;
@@ -24,91 +27,271 @@ body {
   width: 100%;
   height: 100%;
   z-index: -1;
-  opacity: 0.1;
+  background: linear-gradient(45deg, #000, #111, #000);
+  animation: bgShift 4s ease-in-out infinite;
+}
+
+@keyframes bgShift {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
 }
 
 header {
-  background: #ff3c00;
-  padding: 15px;
+  background: linear-gradient(45deg, #ff3c00, #ff6600, #ff3c00);
+  padding: 20px;
   font-size: 24px;
   font-weight: bold;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 14px;
+  gap: 15px;
   position: relative;
-  animation: glow 2s ease-in-out infinite alternate;
+  animation: headerGlow 3s ease-in-out infinite;
+  box-shadow: 0 4px 20px rgba(255, 60, 0, 0.5);
+  border-bottom: 3px solid #ffcc00;
 }
 
-@keyframes glow {
-  from { box-shadow: 0 0 20px #ff3c00; }
-  to { box-shadow: 0 0 30px #ff6600, 0 0 40px #ff3c00; }
+@keyframes headerGlow {
+  0%, 100% { 
+    box-shadow: 0 0 20px #ff3c00, 0 4px 20px rgba(255, 60, 0, 0.5);
+  }
+  50% { 
+    box-shadow: 0 0 40px #ff6600, 0 4px 30px rgba(255, 102, 0, 0.7);
+  }
+}
+
+/* Psycho Gang Logo with Skull */
+.psycho-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(45deg, #fff, #ffcc00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 900;
+  font-size: 18px;
+  border: 2px solid #fff;
+  padding: 8px 15px;
+  border-radius: 15px;
+  animation: logoFloat 3s ease-in-out infinite;
+  position: relative;
+}
+
+.psycho-logo::before {
+  content: "💀";
+  font-size: 20px;
+  animation: skullSpin 2s linear infinite;
+}
+
+.psycho-logo::after {
+  content: "🔥";
+  font-size: 16px;
+  animation: fireFlicker 1.5s ease-in-out infinite;
+}
+
+@keyframes logoFloat {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-5px) scale(1.05); }
+}
+
+@keyframes skullSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes fireFlicker {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.2); }
+}
+
+/* Gaming Title Animation */
+.game-title {
+  animation: titlePulse 2s ease-in-out infinite;
+  text-shadow: 0 0 10px #fff;
+}
+
+@keyframes titlePulse {
+  0%, 100% { 
+    text-shadow: 0 0 10px #fff, 0 0 20px #ffcc00; 
+    transform: scale(1);
+  }
+  50% { 
+    text-shadow: 0 0 20px #fff, 0 0 30px #ffcc00, 0 0 40px #ff6600; 
+    transform: scale(1.02);
+  }
 }
 
 .countdown {
-  font-size: 28px;
-  margin: 20px 0;
+  font-size: 32px;
+  margin: 25px 0;
   color: #00ffcc;
-  animation: pulse 1.5s ease-in-out infinite;
-  text-shadow: 0 0 10px #00ffcc;
+  animation: countdownPulse 2s ease-in-out infinite;
+  text-shadow: 0 0 20px #00ffcc;
+  font-weight: 900;
+  border: 2px solid #00ffcc;
+  border-radius: 10px;
+  padding: 15px;
+  background: rgba(0, 255, 204, 0.1);
 }
 
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(1); }
+@keyframes countdownPulse {
+  0%, 100% { 
+    transform: scale(1); 
+    box-shadow: 0 0 20px rgba(0, 255, 204, 0.5);
+  }
+  50% { 
+    transform: scale(1.05); 
+    box-shadow: 0 0 40px rgba(0, 255, 204, 0.8);
+  }
 }
 
 section {
-  padding: 20px;
+  padding: 25px;
   position: relative;
 }
 
 h2 {
   color: #ffcc00;
-  margin-bottom: 10px;
-  text-shadow: 0 0 8px #ffcc00;
+  margin-bottom: 20px;
+  text-shadow: 0 0 15px #ffcc00;
+  font-size: 24px;
+  font-weight: 900;
+  animation: headingGlow 3s ease-in-out infinite;
+}
+
+@keyframes headingGlow {
+  0%, 100% { text-shadow: 0 0 15px #ffcc00; }
+  50% { text-shadow: 0 0 25px #ffcc00, 0 0 35px #ff9900; }
 }
 
 .prizes,
 .winners,
-.rules {
-  background: linear-gradient(135deg, #111, #222);
-  margin: 15px auto;
-  padding: 15px;
-  border-radius: 10px;
+.rules,
+.gaming-zone {
+  background: linear-gradient(135deg, #111, #222, #111);
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 15px;
   max-width: 600px;
-  border: 2px solid #ff3c00;
-  box-shadow: 0 4px 15px rgba(255, 60, 0, 0.3);
+  border: 3px solid #ff3c00;
+  box-shadow: 0 8px 25px rgba(255, 60, 0, 0.4);
+  animation: cardFloat 4s ease-in-out infinite;
+}
+
+@keyframes cardFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-3px); }
 }
 
 .prizes li,
 .rules li {
   text-align: left;
-  margin: 8px 0;
+  margin: 12px 0;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 5px 0;
+  border-bottom: 1px solid rgba(255, 204, 0, 0.3);
 }
 
 .winners table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 10px;
+  margin-top: 15px;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 .winners th,
 .winners td {
   border: 1px solid #555;
-  padding: 8px;
+  padding: 12px;
+  font-weight: bold;
 }
 
 .winners th {
-  background: #ff3c00;
+  background: linear-gradient(45deg, #ff3c00, #ff6600);
+  color: #fff;
+  font-size: 16px;
 }
 
+/* Gaming Zone Interactive Elements */
+.gaming-zone {
+  border-color: #00ffcc;
+}
+
+.gaming-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.game-btn {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  animation: btnBounce 2s ease-in-out infinite;
+}
+
+@keyframes btnBounce {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.btn-motivation {
+  background: linear-gradient(45deg, #ff3c00, #ff6600);
+  color: white;
+}
+
+.btn-tips {
+  background: linear-gradient(45deg, #00ffcc, #00ccaa);
+  color: black;
+}
+
+.btn-stats {
+  background: linear-gradient(45deg, #ffcc00, #ff9900);
+  color: black;
+}
+
+.game-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+}
+
+.gaming-content {
+  background: linear-gradient(135deg, #222, #333);
+  padding: 20px;
+  border-radius: 10px;
+  margin: 15px auto;
+  max-width: 450px;
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffcc00;
+  font-weight: bold;
+  font-size: 18px;
+  border: 2px solid #ffcc00;
+  animation: contentGlow 3s ease-in-out infinite;
+}
+
+@keyframes contentGlow {
+  0%, 100% { box-shadow: 0 0 10px rgba(255, 204, 0, 0.3); }
+  50% { box-shadow: 0 0 20px rgba(255, 204, 0, 0.6); }
+}
+
+/* Form Styling */
 form {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  max-width: 400px;
+  gap: 15px;
+  max-width: 450px;
   margin: auto;
 }
 
@@ -116,10 +299,19 @@ input,
 button,
 select,
 textarea {
-  padding: 10px;
-  border-radius: 5px;
-  border: none;
+  padding: 15px;
+  border-radius: 8px;
+  border: 2px solid #555;
   font-size: 16px;
+  font-weight: bold;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #00ffcc;
+  box-shadow: 0 0 10px rgba(0, 255, 204, 0.5);
+  outline: none;
 }
 
 button {
@@ -128,152 +320,150 @@ button {
   cursor: pointer;
   transition: 0.3s;
   text-transform: uppercase;
-  font-weight: bold;
+  font-weight: 900;
+  box-shadow: 0 5px 15px rgba(255, 60, 0, 0.4);
+  border: none;
+  animation: btnPulse 2s ease-in-out infinite;
+}
+
+@keyframes btnPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.02); }
 }
 
 button:hover {
   background: linear-gradient(45deg, #e63200, #ff3c00);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(255, 60, 0, 0.4);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(255, 60, 0, 0.6);
 }
 
 .contact a {
   display: inline-block;
-  margin: 5px;
-  padding: 10px 15px;
+  margin: 10px;
+  padding: 15px 25px;
   background: linear-gradient(45deg, #00ffcc, #00ccaa);
   color: #000;
-  border-radius: 5px;
+  border-radius: 10px;
   text-decoration: none;
   font-weight: bold;
   transition: 0.3s;
+  border: 2px solid #00ffcc;
+  animation: contactFloat 3s ease-in-out infinite;
+}
+
+@keyframes contactFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-2px); }
 }
 
 .contact a:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 15px rgba(0, 255, 204, 0.4);
+  transform: scale(1.1);
+  box-shadow: 0 5px 20px rgba(0, 255, 204, 0.5);
 }
 
-audio {
-  margin-top: 15px;
-  border-radius: 10px;
+/* Trophy Animation */
+.trophy-animate {
+  font-size: 40px;
+  animation: trophyBounce 2s ease-in-out infinite;
+  margin: 20px 0;
 }
 
-/* Gaming Elements */
-.floating-gun {
-  animation: float 3s ease-in-out infinite;
+@keyframes trophyBounce {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  25% { transform: translateY(-10px) rotate(5deg); }
+  50% { transform: translateY(-5px) rotate(0deg); }
+  75% { transform: translateY(-10px) rotate(-5deg); }
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+/* Weapon Icons Animation */
+.weapon-icons {
+  font-size: 24px;
+  margin: 15px 0;
+  animation: weaponSpin 4s linear infinite;
 }
 
-/* Responsive Styles */
+@keyframes weaponSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Mobile Responsive */
 @media (max-width: 650px) {
   .prizes,
   .winners,
-  .rules {
-    max-width: 90%;
+  .rules,
+  .gaming-zone {
+    max-width: 95%;
   }
   form {
-    max-width: 90%;
+    max-width: 95%;
   }
   header {
     flex-direction: column;
     font-size: 20px;
-    gap: 7px;
+    gap: 10px;
+  }
+  .psycho-logo {
+    font-size: 16px;
+  }
+  .countdown {
+    font-size: 24px;
   }
 }
 
 @media (max-width: 400px) {
   header {
     font-size: 18px;
-    padding: 8px;
+    padding: 15px;
   }
   .countdown {
-    font-size: 22px;
+    font-size: 20px;
   }
   input,
   button,
   select,
   textarea {
     font-size: 14px;
-    padding: 8px;
+    padding: 12px;
+  }
+  .psycho-logo {
+    font-size: 14px;
+    padding: 6px 10px;
   }
 }
 </style>
 </head>
 <body>
 
-<!-- Background Fire Animation -->
-<div class="fire-bg">
-  <lottie-player 
-    src="https://lottie.host/4f7c5d96-3d5b-4f24-9c5a-8f8e2c6d1a0b/QmJyxBzJ5q.json" 
-    background="transparent" 
-    speed="0.5" 
-    style="width: 100%; height: 100%;" 
-    loop 
-    autoplay>
-  </lottie-player>
-</div>
+<div class="fire-bg"></div>
 
 <header>
-  <!-- Psycho Gang Team Logo - Base64 Embedded -->
-  <img src="data:image/png;base64,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" 
-       alt="Psycho Gang Team Logo" height="50" 
-       style="border-radius:10px;box-shadow:0 0 15px #ff3c00;" class="floating-gun">
-  
-  Free Fire Tournament 2025
-  
-  <!-- Small fire effect beside title -->
-  <lottie-player 
-    src="https://lottie.host/embed/b4f4c9b5-8e5e-4f4e-9b4e-5a5c5d5e5f5g/Jy7B8CzK9L.json"
-    background="transparent" 
-    speed="1" 
-    style="width: 40px; height: 40px;" 
-    loop 
-    autoplay>
-  </lottie-player>
+  <div class="psycho-logo">
+    <span>PSYCHO GANG</span>
+  </div>
+  <div class="game-title">Free Fire Tournament 2025</div>
+  <div style="font-size: 20px; animation: fireFlicker 2s ease-in-out infinite;">🔥</div>
 </header>
 
 <section>
-  <h2>Countdown</h2>
+  <h2>⏰ Tournament Countdown ⏰</h2>
   <div class="countdown" id="countdown">Loading...</div>
-  
-  <!-- Gaming controller animation -->
-  <lottie-player 
-    src="https://lottie.host/embed/c5f5d9c6-9f6f-5g5h-0c5d-6b6d6e6f6g6h/Kz8C9DzL0M.json"
-    background="transparent" 
-    speed="1" 
-    style="width: 80px; height: 80px; margin: 10px auto;" 
-    loop 
-    autoplay>
-  </lottie-player>
+  <div class="weapon-icons">🎯 ⚔️ 🏹 💣</div>
 </section>
 
 <section class="prizes">
-  <h2>Prize Distribution & Entry Fee</h2>
+  <h2>💰 Prize Distribution & Entry Fee 💰</h2>
   <ul>
-    <li><b style="color:#ff3c00;">Entry Fee:</b> ₹300 per team</li>
-    <li><b style="color:#ffcc00;">Winner:</b> ₹2500 💰</li>
-    <li><b style="color:#silver;">Runner-up:</b> ₹1500 🥈</li>
-    <li><b style="color:#cd7f32;">3rd Place:</b> Random Prize 🎁</li>
+    <li>🔥 <b style="color:#ff3c00;">Entry Fee:</b> ₹300 per team 💳</li>
+    <li>🥇 <b style="color:#ffcc00;">Winner:</b> ₹2500 🏆</li>
+    <li>🥈 <b style="color:#silver;">Runner-up:</b> ₹1500 🥈</li>
+    <li>🥉 <b style="color:#cd7f32;">3rd Place:</b> Random Prize 🎁</li>
   </ul>
-  
-  <!-- Trophy animation -->
-  <lottie-player 
-    src="https://lottie.host/embed/d6g6e0d7-0g7g-6h6i-1d6e-7c7e7f7g7h7i/Lz9D0EzM1N.json"
-    background="transparent" 
-    speed="1" 
-    style="width: 60px; height: 60px; margin: 10px auto;" 
-    loop 
-    autoplay>
-  </lottie-player>
+  <div class="trophy-animate">🏆</div>
 </section>
 
 <section class="winners">
-  <h2>Previous Winners</h2>
+  <h2>🏅 Previous Champions 🏅</h2>
   <table>
     <tr><th>Year</th><th>Team Name</th><th>Prize</th></tr>
     <tr><td>2024</td><td>Alpha Squad</td><td>₹2000</td></tr>
@@ -281,113 +471,143 @@ audio {
 </section>
 
 <section class="rules">
-  <h2>Rules & Regulations</h2>
+  <h2>📋 Tournament Rules 📋</h2>
   <ul>
-    <li>🎮 Mode: Clash Squad</li>
+    <li>🎮 Game Mode: Clash Squad</li>
     <li>🚫 No emulator allowed</li>
     <li>⚡ No hacks or cheats</li>
     <li>📱 Mobile devices only</li>
     <li>🔥 Fair play mandatory</li>
+    <li>⏰ Be punctual for matches</li>
   </ul>
 </section>
 
+<section class="gaming-zone">
+  <h2>🎮 Gaming Zone 🎮</h2>
+  
+  <div class="gaming-buttons">
+    <button class="game-btn btn-motivation" onclick="showMotivation()">
+      💪 Motivation
+    </button>
+    <button class="game-btn btn-tips" onclick="showTips()">
+      💡 Pro Tips
+    </button>
+    <button class="game-btn btn-stats" onclick="showStats()">
+      📊 Tournament Stats
+    </button>
+  </div>
+  
+  <div class="gaming-content" id="gaming-content">
+    🎮 Welcome to Psycho Gang Tournament! Click buttons above! 🎮
+  </div>
+</section>
+
 <section>
-  <h2>Register Now</h2>
+  <h2>📝 Register Your Team 📝</h2>
   <form action="https://api.web3forms.com/submit" method="POST">
-    <!-- Web3Forms Access Key -->
     <input type="hidden" name="access_key" value="ee1170ba-88fb-4d83-ae66-f764481acf90">
-    
-    <!-- Hidden fields for better organization -->
     <input type="hidden" name="subject" value="🔥 Free Fire Tournament Registration - Psycho Gang">
     <input type="hidden" name="from_name" value="Tournament Registration System">
     
-    <!-- Registration fields -->
-    <input type="text" name="team_name" placeholder="Team Name" required />
-    <input type="text" name="leader_name" placeholder="Leader Name" required />
-    <input type="number" name="contact_number" placeholder="Contact Number" required />
-    <input type="email" name="email" placeholder="Email Address (Optional)" />
+    <input type="text" name="team_name" placeholder="🎮 Team Name" required />
+    <input type="text" name="leader_name" placeholder="👤 Leader Name" required />
+    <input type="number" name="contact_number" placeholder="📱 Contact Number" required />
+    <input type="email" name="email" placeholder="📧 Email Address (Optional)" />
     
-    <!-- Additional tournament info -->
-    <select name="preferred_time" style="padding:10px; border-radius:5px; border:none; font-size:16px; background:#fff; color:#000;">
-      <option value="">Select Preferred Time (Optional)</option>
-      <option value="Morning (10AM-12PM)">Morning (10AM-12PM)</option>
-      <option value="Afternoon (2PM-4PM)">Afternoon (2PM-4PM)</option>
-      <option value="Evening (6PM-8PM)">Evening (6PM-8PM)</option>
-      <option value="Night (8PM-10PM)">Night (8PM-10PM)</option>
+    <select name="preferred_time">
+      <option value="">⏰ Select Preferred Time (Optional)</option>
+      <option value="Morning (10AM-12PM)">🌅 Morning (10AM-12PM)</option>
+      <option value="Afternoon (2PM-4PM)">🌞 Afternoon (2PM-4PM)</option>
+      <option value="Evening (6PM-8PM)">🌆 Evening (6PM-8PM)</option>
+      <option value="Night (8PM-10PM)">🌙 Night (8PM-10PM)</option>
     </select>
     
-    <textarea name="message" placeholder="Additional Message (Optional)" 
-              style="padding:10px; border-radius:5px; border:none; font-size:16px; min-height:60px; resize:vertical; background:#fff; color:#000;"></textarea>
+    <textarea name="message" placeholder="💬 Additional Message (Optional)"></textarea>
     
-    <!-- Web3Forms honeypot spam protection -->
-    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+    <input type="checkbox" name="botcheck" style="display: none;">
     
-    <button type="submit">🚀 Submit Registration</button>
+    <button type="submit">🚀 REGISTER NOW 🚀</button>
     
-    <div style="color:#ffcc00; margin-top:7px; font-size:14px;">
-      <b>Entry Fee:</b> ₹300 per team | Payment details will be shared after registration
+    <div style="color:#ffcc00; margin-top:15px; font-size:16px; font-weight:bold;">
+      💳 <b>Entry Fee:</b> ₹300 per team<br>
+      💰 Payment details will be shared after registration
     </div>
   </form>
 </section>
 
-<section>
-  <h2>Free Fire Music</h2>
-  <audio controls style="filter: hue-rotate(45deg);">
-    <source
-      src="https://freesound.org/data/previews/522/522344_11263-lq.mp3"
-      type="audio/mpeg"
-    />
-    Your browser does not support the audio element.
-  </audio>
-  
-  <!-- Music note animation -->
-  <div>
-    <lottie-player 
-      src="https://lottie.host/embed/e7h7f1e8-1h8h-7i7j-2e7f-8d8f8g8h8i8j/Mz0E1FzN2O.json"
-      background="transparent" 
-      speed="1" 
-      style="width: 50px; height: 50px; margin: 10px auto;" 
-      loop 
-      autoplay>
-    </lottie-player>
-  </div>
-</section>
-
 <section class="contact">
-  <h2>Contact Us</h2>
+  <h2>📞 Contact Psycho Gang 📞</h2>
   <a href="tel:9933158308">📞 Call Now</a>
   <a href="https://wa.me/919933158308">💬 WhatsApp</a>
-  
-  <!-- Phone animation -->
-  <div>
-    <lottie-player 
-      src="https://lottie.host/embed/f8i8g2f9-2i9i-8j8k-3f8g-9e9g9h9i9j9k/Nz1F2GzO3P.json"
-      background="transparent" 
-      speed="1" 
-      style="width: 60px; height: 60px; margin: 10px auto;" 
-      loop 
-      autoplay>
-    </lottie-player>
-  </div>
+  <div style="margin-top: 20px; font-size: 24px; animation: fireFlicker 2s ease-in-out infinite;">📱 🎮 🔥</div>
 </section>
 
 <script>
-  const target = new Date("2025-10-05T00:00:00").getTime();
-  const countdownEl = document.getElementById("countdown");
-  const interval = setInterval(() => {
-    const now = new Date().getTime();
-    const diff = target - now;
-    if (diff > 0) {
-      const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-      const s = Math.floor((diff % (1000 * 60)) / 1000);
-      countdownEl.innerText = `${d}d ${h}h ${m}m ${s}s`;
-    } else {
-      countdownEl.innerText = "🔥 Tournament Started! 🔥";
-      clearInterval(interval);
-    }
-  }, 1000);
+// Countdown Timer
+const target = new Date("2025-10-05T00:00:00").getTime();
+const countdownEl = document.getElementById("countdown");
+
+function updateCountdown() {
+  const now = new Date().getTime();
+  const diff = target - now;
+  
+  if (diff > 0) {
+    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const s = Math.floor((diff % (1000 * 60)) / 1000);
+    countdownEl.innerText = `${d}d ${h}h ${m}m ${s}s`;
+  } else {
+    countdownEl.innerText = "🔥 Tournament Started! 🔥";
+  }
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+// Gaming Zone Functions
+function showMotivation() {
+  const messages = [
+    "🔥 Victory belongs to Psycho Gang! 🔥",
+    "💪 Champions are made in practice! 💪",
+    "🎯 Every headshot counts - make it perfect! 🎯",
+    "⚡ Speed and accuracy wins matches! ⚡",
+    "🏆 Your team's victory starts now! 🏆",
+    "💀 Fear is temporary, Victory is eternal! 💀",
+    "🎮 Gaming is life, Tournament is everything! 🎮"
+  ];
+  const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+  document.getElementById('gaming-content').innerHTML = randomMessage;
+}
+
+function showTips() {
+  const tips = [
+    "💡 Always communicate with your team!",
+    "🎯 Practice headshots in training mode daily!",
+    "🏃 Master the art of quick looting!",
+    "🔄 Learn different weapon recoil patterns!",
+    "🗺️ Know every corner of the map!",
+    "💊 Use medkits wisely - timing is key!",
+    "🎮 Stay calm under pressure!"
+  ];
+  const randomTip = tips[Math.floor(Math.random() * tips.length)];
+  document.getElementById('gaming-content').innerHTML = randomTip;
+}
+
+function showStats() {
+  const stats = [
+    "📊 Average match duration: 12-15 minutes",
+    "🎮 Teams registered: " + (Math.floor(Math.random() * 50) + 25),
+    "💰 Total prize pool: ₹4000+",
+    "📱 Platform: Mobile devices only",
+    "🏆 Tournament format: Clash Squad",
+    "🔥 Organized by: Psycho Gang",
+    "⏰ Tournament date: October 5, 2025"
+  ];
+  const randomStat = stats[Math.floor(Math.random() * stats.length)];
+  document.getElementById('gaming-content').innerHTML = randomStat;
+}
 </script>
+
 </body>
 </html>
